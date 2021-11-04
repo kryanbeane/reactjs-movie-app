@@ -32,7 +32,7 @@ export default function MovieCard(props) {
     props.selectFavorite(movie.id);
   };
 
-  return (
+      return (
     <Card className={classes.card}>
       <CardHeader
         className={classes.header}
