@@ -19,6 +19,7 @@ const FavoriteMoviesPage = () => {
             };
         })
     );
+
     // Check if any of the parallel queries is still loading.
     const isLoading = favoriteMovieQueries.find((m) => m.isLoading === true);
 
@@ -26,7 +27,6 @@ const FavoriteMoviesPage = () => {
         return <Spinner/>;
     }
     const movies = favoriteMovieQueries.map((q) => q.data);
-    const toDo = () => true;
 
     return (
         <PageTemplate

@@ -11,8 +11,12 @@ const UpcomingMoviesPage = (props) => {
     if (isLoading) return <Spinner/>
     if (isError) return <h1>{error.message}</h1>
     const movies = data.results;
+
     const favorites = movies.filter(m => m.favorite)
     localStorage.setItem('favorites', JSON.stringify(favorites))
+
+    const mustWatch = movies.filter(m => m.mustWatch)
+    localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
 
     return (
         <PageTemplate
