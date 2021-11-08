@@ -9,7 +9,6 @@ const AddToPlaylistIcon = ({movie}) => {
         e.preventDefault();
         context.addToWatchList(movie);
     };
-
     return (
         <IconButton aria-label="Add to WatchList" onClick={handleAddWatchlist}>
             <PlaylistAddIcon color="primary" fontSize="large"/>
