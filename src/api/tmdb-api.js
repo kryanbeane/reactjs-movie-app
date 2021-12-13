@@ -50,6 +50,19 @@ export const getMovieImages = ({queryKey}) => {
     });
 };
 
+export const getShowImages = ({queryKey}) => {
+    const [, idPart] = queryKey;
+    const {id} = idPart;
+    return fetch(
+        `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    ).then((response) => {
+        if (!response.ok) throw new Error(response.json().message);
+        return response.json();
+    }).catch((e) => {
+        throw e
+    });
+};
+
 export const getUpcoming = () => {  
     return fetch(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
