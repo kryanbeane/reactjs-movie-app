@@ -1,5 +1,5 @@
 import React from "react";
-import FilterMoviesCard from "../components/filterMoviesCard";
+import FilterMoviesCard from "../components/movies/filterMoviesCard";
 import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 import { QueryClientProvider, QueryClient } from "react-query";

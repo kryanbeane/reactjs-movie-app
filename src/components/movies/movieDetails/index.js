@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MovieDetails = ({movie}) => {  // Don't miss this!
+const MovieDetails = ({movie}) => {  
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
