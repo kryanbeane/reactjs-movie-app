@@ -72,9 +72,9 @@ export const getMovieReviews = (id) => {
         });
 };
 
-export const getPeople = () => {
+export const getTrending = () => {  
     return fetch(
-        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
+        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
     ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
