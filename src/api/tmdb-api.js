@@ -1,6 +1,6 @@
-export const getMovies = () => {
+export const getMovies = (page) => {
     return fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&region=GB`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&region=GB&page=${page}`
     ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
@@ -50,9 +50,9 @@ export const getMovieImages = ({queryKey}) => {
     });
 };
 
-export const getUpcoming = () => {  
+export const getUpcoming = (page) => {  
     return fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB&page=${page}`
     ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
@@ -71,9 +71,9 @@ export const getMovieReviews = (id) => {
         });
 };
 
-export const getTrending = () => {
+export const getTrending = (page) => {
     return fetch(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB&page=${page}`
       ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
@@ -82,14 +82,13 @@ export const getTrending = () => {
     });
 };
 
-export const getShows = () => {
+export const getShows = (page) => {
     return fetch(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&timezone=Ireland&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&timezone=Ireland&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&language=en-US&region=GB&page=${page}`
         ).then((response) => {
             if (!response.ok) throw new Error(response.json().message);
             return response.json();
         }).catch((e) => {
             throw e
         });
-    };
-    
+};
