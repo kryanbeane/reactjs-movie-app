@@ -2,7 +2,6 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
-// import useMovie from "../hooks/useMovie";   Redundant
 import {getMovie} from '../api/tmdb-api'
 import {useQuery} from "react-query";
 import Spinner from '../components/spinner'
@@ -15,13 +14,8 @@ const MovieDetailsPage = (props) => {
         getMovie
     );
 
-    if (isLoading) {
-        return <Spinner/>;
-    }
-
-    if (isError) {
-        return <h1>{error.message}</h1>;
-    }
+    if (isLoading) return <Spinner/>;
+    if (isError)  return <h1>{error.message}</h1>;
 
     return (
         <>

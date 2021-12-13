@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
@@ -48,7 +47,7 @@ const SiteHeader = ( { history }) => {
             <AppBar position="fixed" color="secondary">
                 <Toolbar>
                     <Typography variant="h4" className={classes.title}>
-                        TMDB Client
+                        MOVIEPEDIA
                     </Typography>
                     <Typography variant="h6" className={classes.title}>
                         All you ever wanted to know about Movies!

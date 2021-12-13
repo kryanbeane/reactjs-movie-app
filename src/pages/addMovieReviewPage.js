@@ -13,13 +13,9 @@ const WriteReviewPage = (props) => {
         getMovie
     );
 
-    if (isLoading) {
-        return <Spinner/>;
-    }
-
-    if (isError) {
-        return <h1>{error.message}</h1>;
-    }
+    if (isLoading) return <Spinner/>;
+    if (isError) return <h1>{error.message}</h1>;
+    
     return (
         <PageTemplate movie={movie}>
             <ReviewForm movie={movie}/>

@@ -27,13 +27,9 @@ const TemplateMoviePage = ({ movie, children }) => {
         getMovieImages
     );
 
-    if (isLoading) {
-        return <Spinner />;
-    }
+    if (isLoading) return <Spinner />;
+    if (isError) return <h1>{error.message}</h1>;
 
-    if (isError) {
-        return <h1>{error.message}</h1>;
-    }
     const images = data.posters
 
     return (
