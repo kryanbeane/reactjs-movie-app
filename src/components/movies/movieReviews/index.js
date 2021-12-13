@@ -8,8 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import { getMovieReviews } from "../../../api/tmdb-api";
-import { excerpt } from "../../../util";
+import { getMovieReviews } from "src/api/tmdb-api.js";
+import { excerpt } from "src/util.js";
 
 const useStyles = makeStyles({
     table: {

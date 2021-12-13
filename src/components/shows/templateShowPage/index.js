@@ -1,12 +1,12 @@
 import React from "react";   
-import MovieHeader from "../../headerMovie";
+import MovieHeader from "../headerShow";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getShowImages } from "../../../api/tmdb-api";
+import { getShowImages } from "src/api/tmdb-api.js";
 import { useQuery } from "react-query";
-import Spinner from '../../spinner'
+import Spinner from 'src/components/spinner'
 
 const useStyles = makeStyles((theme) => ({
     root: {
