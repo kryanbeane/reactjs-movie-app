@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 345,
     },
     media: {height: 300},
-
     formControl: {
         margin: theme.spacing(1),
         minWidth: 220,
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function FilterMoviesCard(props) {
+export default function FilterShowsCard(props) {
     const classes = useStyles();
     const {data, error, isLoading, isError} = useQuery("genres", getGenres);
 
@@ -41,7 +40,7 @@ export default function FilterMoviesCard(props) {
         props.onUserInput(type, value); 
     };
 
-    const handleTextChange = (e, props) => {
+    const handleTextChange = (e) => {
         handleChange(e, "name", e.target.value);
     };
 
@@ -53,7 +52,7 @@ export default function FilterMoviesCard(props) {
         <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography variant="h5" component="h1">
-                    Filter Movies
+                    Filter TV Shows
                 </Typography>
                 <TextField
                     className={classes.formControl}

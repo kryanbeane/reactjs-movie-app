@@ -4,9 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getMovieImages } from "src/api/tmdb-api.js";
+import { getMovieImages } from "../../../api/tmdb-api.js";
 import { useQuery } from "react-query";
-import Spinner from 'src/components/spinner'
+import Spinner from "../../spinner";
 
 const useStyles = makeStyles((theme) => ({
     root: {

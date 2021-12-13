@@ -11,13 +11,13 @@ const useStyles = makeStyles({
     },
 });
 
-function ShowListPageTemplate({shows, title, action}) {
+function ShowListPageTemplate({tvshows, title, action}) {
     const classes = useStyles();
     const [nameFilter, setNameFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const genreId = Number(genreFilter);
 
-    let displayedShows = shows
+    let displayedShows = tvshows
         .filter((m) => {
             return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
         })

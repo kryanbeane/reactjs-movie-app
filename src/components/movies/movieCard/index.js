@@ -15,7 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import {Link} from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-import {MoviesContext} from "src/contexts";
+import {MoviesContext} from "../../../contexts/moviesContext";
 
 
 const useStyles = makeStyles({

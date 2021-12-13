@@ -9,9 +9,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import {getGenres} from "src/api/tmdb-api.js";
+import {getGenres} from "../../../api/tmdb-api.js";
 import {useQuery} from "react-query";
-import Spinner from "src/components/spinner"
+import Spinner from "../../spinner";
 
 const useStyles = makeStyles((theme) => ({
     root: {
