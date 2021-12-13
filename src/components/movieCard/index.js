@@ -11,6 +11,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
+import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import {Link} from "react-router-dom";
@@ -23,19 +24,24 @@ const useStyles = makeStyles({
     media: {height: 500},
     avatar: {
         backgroundColor: "rgb(255, 0, 0)",
-    }
+    },
 });
 
 export default function MovieCard({movie, action}) {
     const classes = useStyles();
     const {favorites, mustWatch} = useContext(MoviesContext);
 
-    if (favorites.find((id) => id === movie.id)) movie.favorite = true
-    else movie.favorite = false
+    if (favorites.find((id) => id === movie.id)) {
+        movie.favorite = true
+    } else {
+        movie.favorite = false
+    }
 
-    if (mustWatch.find((id) => id === movie.id)) movie.mustWatch = true 
-    else movie.mustWatch = false
-
+    if (mustWatch.find((id) => id === movie.id)) {
+        movie.mustWatch = true
+    } else {
+        movie.mustWatch = false
+    }
 
     return (
         <Card className={classes.card}>
