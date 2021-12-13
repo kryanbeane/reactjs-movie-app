@@ -18,7 +18,6 @@ import Spinner from '../spinner'
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
-        backgroundColor: "rgb(204, 204, 0)",
     },
     media: {height: 300},
 
@@ -33,19 +32,15 @@ export default function FilterMoviesCard(props) {
     const classes = useStyles();
     const {data, error, isLoading, isError} = useQuery("genres", getGenres);
 
-    if (isLoading) {
-        return <Spinner/>;
-    }
-
-    if (isError) {
-        return <h1>{error.message}</h1>;
-    }
+    if (isLoading) return <Spinner/>;
+    if (isError) return <h1>{error.message}</h1>;
+    
     const genres = data.genres;
     genres.unshift({id: "0", name: "All"});
 
     const handleChange = (e, type, value) => {
         e.preventDefault();
-        props.onUserInput(type, value); // NEW
+        props.onUserInput(type, value); 
     };
 
     const handleTextChange = (e, props) => {
@@ -60,8 +55,7 @@ export default function FilterMoviesCard(props) {
         <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography variant="h5" component="h1">
-                    <SearchIcon fontSize="large"/>
-                    Filter the movies.
+                    Filter Movies
                 </Typography>
                 <TextField
                     className={classes.formControl}
@@ -95,13 +89,7 @@ export default function FilterMoviesCard(props) {
                 image={img}
                 title="Filter"
             />
-            <CardContent>
-                <Typography variant="h5" component="h1">
-                    <SearchIcon fontSize="large"/>
-                    Filter the movies.
-                    <br/>
-                </Typography>
-            </CardContent>
+
         </Card>
     );
 }

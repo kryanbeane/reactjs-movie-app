@@ -81,3 +81,15 @@ export const getTrending = () => {
         throw e
     });
 };
+
+export const getShows = () => {
+    return fetch(
+        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&timezone=Ireland&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`
+        ).then((response) => {
+            if (!response.ok) throw new Error(response.json().message);
+            return response.json();
+        }).catch((e) => {
+            throw e
+        });
+    };
+    
