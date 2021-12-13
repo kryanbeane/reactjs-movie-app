@@ -5,8 +5,8 @@ export const getMovies = () => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
     })
-        .catch((error) => {
-            throw error
+        .catch((e) => {
+            throw e
         });
 };
 
@@ -19,8 +19,8 @@ export const getMovie = (args) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
     })
-        .catch((error) => {
-            throw error
+        .catch((e) => {
+            throw e
         });
 };
 
@@ -31,8 +31,8 @@ export const getGenres = async () => {
             if (!response.ok) throw new Error(response.json().message);
             return response.json();
         })
-        .catch((error) => {
-            throw error
+        .catch((e) => {
+            throw e
         });
 };
 
@@ -45,8 +45,8 @@ export const getMovieImages = ({queryKey}) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
 
-    }).catch((error) => {
-        throw error
+    }).catch((e) => {
+        throw e
     });
 };
 
@@ -65,7 +65,7 @@ export const getMovieReviews = (id) => {
     return fetch(
         `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`
     )
-        .then((res) => res.json())
+        .then((response) => response.json())
         .then((json) => {
             return json.results;
         });
