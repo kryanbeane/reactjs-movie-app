@@ -1,6 +1,6 @@
 export const getMovies = () => {
     return fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-GB&include_adult=false&include_video=false`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&region=GB`
     ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
@@ -53,7 +53,7 @@ export const getMovieImages = ({queryKey}) => {
 
 export const getUpcoming = () => {  
     return fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-GB`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
     ).then((response) => {
         if (!response.ok) throw new Error(response.json().message);
         return response.json();
@@ -72,3 +72,13 @@ export const getMovieReviews = (id) => {
         });
 };
 
+export const getPeople = () => {
+    return fetch(
+        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
+    ).then((response) => {
+        if (!response.ok) throw new Error(response.json().message);
+        return response.json();
+    }).catch((e) => {
+        throw e
+    });
+};
