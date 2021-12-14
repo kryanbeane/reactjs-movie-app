@@ -55,7 +55,6 @@ const MovieDetails = ({movie}) => {
                 ))}
             </Paper>
 
-
             <Paper component="ul" className={classes.root}>
                 <Chip icon={<AccessTimeIcon/>} label={`${movie.runtime} min.`}/>
                 <Chip
@@ -68,7 +67,6 @@ const MovieDetails = ({movie}) => {
                 />
                 <Chip label={`Released: ${movie.release_date}`}/>
             </Paper>
-
 
             <Paper component="ul" className={classes.root}>
                 <li>

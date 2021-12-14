@@ -20,7 +20,7 @@ const NowPlayingPage = (props) => {
 
     return (
         <PageTemplate
-            title="Now Playing Movies"
+            title="In Cinemas Now!"
             movies={movies}
             action={(movie) => {
                 return <AddToPlaylistIcon movie={movie} />
