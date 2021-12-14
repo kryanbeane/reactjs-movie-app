@@ -36,11 +36,11 @@ const App = () => {
                         <Route exact path="/reviews/form" component={AddMovieReviewPage}/>
                         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage}/>
                         <Route exact path="/movies/trending" component={TrendingMoviesPage}/>
-                        <Route path="/reviews/:id" component={MovieReviewPage}/>
+                        <Route exact path="/reviews/:id" component={MovieReviewPage}/>
                         <Route exact path="/movies/favorites" component={FavoriteMoviesPage}/>
-                        <Route exact path="/movies/playlist" component={MustWatchPage}/>
+                        <Route exact path="/movies/must-watch" component={MustWatchPage}/>
                         <Route exact path="/movies/now-playing" component={NowPlayingPage}/>
-                        <Route path="/movies/:id" component={MoviePage}/>
+                        <Route exact path="/movies/:id" component={MoviePage}/>
                         <Route exact path="/" component={HomePage}/>
                         <Redirect from="*" to="/"/>
                     </Switch>

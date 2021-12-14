@@ -4,31 +4,32 @@ import {MoviesContext} from "../contexts/moviesContext";
 import {useQueries} from "react-query";
 import {getMovie} from "../api/tmdb-api";
 import Spinner from '../components/spinner'
+import RemoveFromMustWatch from '../components/cardIcons/removeFromMustWatch';
+import WriteReview from "../components/cardIcons/writeReview";
 
-const PlaylistMoviesPage = () => {
-    const {watchList: movieIds} = useContext(MoviesContext);
-
-    const watchListMovieQueries = useQueries(
+const MustWatchPage = () => {
+    const {mustWatch: movieIds} = useContext(MoviesContext);
+    const mustWatchMovieQueries = useQueries(
         movieIds.map((movieId) => {
             return {
                 queryKey: ["movie", {id: movieId}],
                 queryFn: getMovie,
             };
         })
-    );
-
-    const isLoading = watchListMovieQueries.find((m) => m.isLoading === true);
+    ); 
+    const isLoading = mustWatchMovieQueries.find((m) => m.isLoading === true);
     if (isLoading) return <Spinner/>;
-    const movies = watchListMovieQueries.map((q) => q.data);
+    const movies = mustWatchMovieQueries.map((q) => q.data);
 
     return (
         <PageTemplate
-            title="Your Must Watch"
+            title="Your Must Watch Movies"
             movies={movies}
-            action={() => {
+            action={(movie) => {
                 return (
                     <>
-
+                        <RemoveFromMustWatch movie={movie}/>
+                        <WriteReview movie={movie}/>
                     </>
                 );
             }}
@@ -38,4 +39,4 @@ const PlaylistMoviesPage = () => {
 };
 
 
-export default PlaylistMoviesPage;
+export default MustWatchPage;
