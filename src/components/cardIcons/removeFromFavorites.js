@@ -18,6 +18,6 @@ const RemoveFromFavoritesIcon = ({ movie }) => {
             <DeleteIcon color="primary" fontSize="large" />
         </IconButton>
     );
-};
+}; 
 
 export default RemoveFromFavoritesIcon;
