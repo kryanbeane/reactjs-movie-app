@@ -92,3 +92,16 @@ export const getNowPlaying = () => {
         throw e
     });
 };
+
+export const getSimilar = ({queryKey}) => {
+    const [, idPart] = queryKey;
+    const {id} = idPart;
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      ).then((response) => {
+        if (!response.ok) throw new Error(response.json().message);
+        return response.json();
+    }).catch((e) => {
+        throw e
+    });
+};

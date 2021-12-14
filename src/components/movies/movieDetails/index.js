@@ -9,7 +9,9 @@ import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
+import MoreIcon from '@material-ui/icons/More';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 const MovieDetails = ({movie}) => {  
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
-
+    const history = useHistory();
     return (
         <>
             <Typography variant="h5" component="h3">
@@ -77,11 +79,12 @@ const MovieDetails = ({movie}) => {
                         <Chip label={c.name} className={classes.chip}/>
                     </li>
                 ))}
+            <Chip label={"More"} onClick={() => history.push(`/movies/${movie.id}/similar}`)} icon={<MoreIcon/>}/>
+
             </Paper>
             <Fab
                 color="secondary"
                 variant="extended"
-                onClick={() => setDrawerOpen(true)}
                 className={classes.fab}
             >
                 <NavigationIcon/>
@@ -90,6 +93,7 @@ const MovieDetails = ({movie}) => {
             <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                 <MovieReviews movie={movie}/>
             </Drawer>
+            
         </>
     );
 };

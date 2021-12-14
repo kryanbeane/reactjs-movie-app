@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter, Route, Redirect, Switch} from "react-router-dom";
 import HomePage from "./pages/homePage";
@@ -17,6 +17,8 @@ import MustWatchPage from "./pages/mustWatchPage";
 import Dashboard from '../src/components/user/dashboard/Dashboard';
 import Preferences from '../src/components/user/preferences/Preferences';
 import Login from '../src/components/user/login/Login';
+import SimilarMoviesPage from "./pages/similarMoviesPage";
+
 import useToken from './useToken';
 
 const queryClient = new QueryClient({
@@ -49,6 +51,7 @@ const App = () => {
                         <Route exact path="/movies/must-watch" component={MustWatchPage}/>
                         <Route exact path="/movies/now-playing" component={NowPlayingPage}/>
                         <Route exact path="/movies/:id" component={MoviePage}/>
+                        <Route exact path="/movies/:id/similar" component={SimilarMoviesPage}/>
                         <Route exact path="/" component={HomePage}/>
                         <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/preferences" component={Preferences}/>
