@@ -11,7 +11,6 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import {Link} from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";

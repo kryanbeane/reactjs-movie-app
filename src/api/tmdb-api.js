@@ -50,19 +50,6 @@ export const getMovieImages = ({queryKey}) => {
     });
 };
 
-export const getShowImages = ({queryKey}) => {
-    const [, idPart] = queryKey;
-    const {id} = idPart;
-    return fetch(
-        `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    ).then((response) => {
-        if (!response.ok) throw new Error(response.json().message);
-        return response.json();
-    }).catch((e) => {
-        throw e
-    });
-};
-
 export const getUpcoming = () => {  
     return fetch(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&region=GB`
@@ -104,4 +91,42 @@ export const getShows = () => {
     }).catch((e) => {
         throw e
     });
+};
+
+export const getShowReviews = (id) => {
+    return fetch(
+        `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+        .then((response) => response.json())
+        .then((json) => {
+            return json.results;
+        });
+};
+
+
+export const getShowImages = ({queryKey}) => {
+    const [, idPart] = queryKey;
+    const {id} = idPart;
+    return fetch(
+        `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    ).then((response) => {
+        if (!response.ok) throw new Error(response.json().message);
+        return response.json();
+    }).catch((e) => {
+        throw e
+    });
+};
+
+export const getShow = (args) => {
+    const [, idPart] = args.queryKey;
+    const {id} = idPart;
+    return fetch(
+        `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    ).then((response) => {
+        if (!response.ok) throw new Error(response.json().message);
+        return response.json();
+    })
+        .catch((e) => {
+            throw e
+        });
 };
