@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter, Route, Redirect, Switch} from "react-router-dom";
 import HomePage from "./pages/homePage";
@@ -14,6 +14,9 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TrendingMoviesPage from "./pages/trendingMoviesPage";
 import NowPlayingPage from "./pages/nowPlayingPage";
 import MustWatchPage from "./pages/mustWatchPage";
+import Dashboard from '../src/components/user/dashboard/Dashboard';
+import Preferences from '../src/components/user/preferences/Preferences';
+import Login from '../src/components/user/login/Login';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -26,6 +29,9 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+    const [token, setToken] = useState();
+    if(!token) return <Login setToken={setToken}/>
+    
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
@@ -42,6 +48,8 @@ const App = () => {
                         <Route exact path="/movies/now-playing" component={NowPlayingPage}/>
                         <Route exact path="/movies/:id" component={MoviePage}/>
                         <Route exact path="/" component={HomePage}/>
+                        <Route path="/dashboard" component={Dashboard}/>
+                        <Route path="/preferences" component={Preferences}/>
                         <Redirect from="*" to="/"/>
                     </Switch>
                 </MoviesContextProvider>
