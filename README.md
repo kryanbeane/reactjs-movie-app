@@ -4,60 +4,44 @@ Name: Bryan Keane
 
 ## Overview.
 
-[A brief statement on the content of this repository.]
+React project for Web App Development 2 which clones popular movie websites like Netflix, IMDB, etc.
 
 ### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
  
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
++ Token API to store user tokens and allow them to log in
++ Favorite movies page
++ Must Watch movies page
++ Must Watch movies page
++ Trending movies page
++ Now Playing movies page
++ Filter movies by genre
++ Search movies by name
 
 ## Setup requirements.
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+```
+$ npm install
+```
 
 ## API endpoints.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
-
-e.g.
-+ Discover list of movies - discover/movie
-+ Movie details - movie/:id
-+ Movie genres = /genre/movie/list
++ Get similar movies - https://api.themoviedb.org/3/movie/<id>/similar
++ Get movies now paying in cinemas - https://api.themoviedb.org/3/movie/now_playing
++ Get trending movies - https://api.themoviedb.org/3/trending/movie/day
 
 ## App Design.
 
 ### Component catalogue.
 
-[ Insert a screenshot from the Storybook UI that lists all the stories for the app's components, and highlight those relating to your __new/modified components__ - see the example screenshot below.] .......
+![image](https://user-images.githubusercontent.com/58252571/146228313-c9ed3231-afbd-4546-be17-d2fad0e7a380.png)
+![image](https://user-images.githubusercontent.com/58252571/146228370-e9b69a88-44c9-468d-926c-de326b81c63f.png)
+![image](https://user-images.githubusercontent.com/58252571/146228398-dd23923f-afd5-4d12-a79d-554764bd3e3c.png)
+![image](https://user-images.githubusercontent.com/58252571/146228704-2cd738e6-1aca-45a5-a3ac-6f54a5c2814c.png)
 
-![](./images/storybook.png)
-### UI Design.
-
-[ Insert screenshots of the __new/modified app pages__ you developed (and modified existing pages), Include an appropriate caption for each one (see example below).
-
-![ ](./images/view.png)
-
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
-
-![ ](./images/view.png)
-
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
 ### Routing.
 
-[ List the __new routes__ supported by your app and state the associated page.]
-
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
-
-[If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
-
-## Independent learning (If relevant).
-
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these (we do not require code excerpts) and provide references to the online resources that helped you (articles/blogs).
++ /signin - Sign in page
++ /movies/trending - Trending movies page
++ /movies/:id/similar - Similar movies page
++ /movies/now-playing - Movies in cinemas now page
