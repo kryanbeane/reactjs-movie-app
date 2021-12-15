@@ -11,7 +11,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
 import MoreIcon from '@material-ui/icons/More';
-import { useHistory } from 'react-router-dom';
+import {Link} from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 const MovieDetails = ({movie}) => {  
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const history = useHistory();
     return (
         <>
             <Typography variant="h5" component="h3">
@@ -79,8 +79,10 @@ const MovieDetails = ({movie}) => {
                         <Chip label={c.name} className={classes.chip}/>
                     </li>
                 ))}
-            <Chip label={"More"} onClick={() => history.push(`/movies/${movie.id}/similar}`)} icon={<MoreIcon/>}/>
 
+                <Link to={`/movies/${movie.id}/similar`}>
+                    <Chip label={"More"} icon={<MoreIcon/>}/>
+                </Link>
             </Paper>
             <Fab
                 color="secondary"
