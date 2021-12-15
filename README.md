@@ -11,7 +11,6 @@ React project for Web App Development 2 which clones popular movie websites like
 + Token API to store user tokens and allow them to log in
 + Favorite movies page
 + Must Watch movies page
-+ Must Watch movies page
 + Trending movies page
 + Now Playing movies page
 + Filter movies by genre
